@@ -14,7 +14,7 @@ n_weeks= 104
 types=['films','films-non-english','tv','tv-non-english']
 options = webdriver.ChromeOptions()
 options.add_argument('--disable-notifications')
-driver_path = 'C:/Users/User_/OneDrive/Desktop/chromedriver'
+driver_path = 'Desktop/chromedriver'
 driver = webdriver.Chrome(executable_path=driver_path, options=options)
 
 for type in types:
@@ -58,7 +58,7 @@ for type in types:
         Top10= pd.concat([Top10,df])
         print(f"Completata la settimana {week} di {type}")
 
-    Top10.to_csv(f"C:/Users/User_/OneDrive/Desktop/Netflix Green/{type}.csv", index=False)
+    Top10.to_csv(f"Netflix_Top_10/{type}.csv", index=False)
     print(f"Completato il caricamento di {type}")
 
 
