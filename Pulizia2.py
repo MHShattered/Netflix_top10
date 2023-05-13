@@ -4,7 +4,7 @@ types=['films','films-non-english','tv','tv-non-english']
 df2= pd.DataFrame()
 
 for type in types:
-    df=pd.read_csv(f"C:/Users/User_/OneDrive/Desktop/Netflix Green/{type}_clean.csv")
+    df=pd.read_csv(f"Netflix_Top_10/{type}_clean.csv")
     df['type']= type
     df2= pd.concat([df2, df])
 
@@ -16,4 +16,4 @@ df2.loc[mask, 'Title'] = 'Stranger Things'
 df2['Season'] = df2.apply(lambda row: 0 if (row['type'] == 'films' or row['type'] == 'films-non-english') else 1 if pd.isna(row['Season']) else row['Season'], axis=1)
 df2['Season']=df2['Season'].astype(int)
 
-df2.to_csv("C:/Users/User_/OneDrive/Desktop/Netflix Green/United.csv", index=False)
+df2.to_csv("Netflix_Top_10/United.csv", index=False)
